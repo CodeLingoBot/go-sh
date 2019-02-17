@@ -14,7 +14,7 @@ import (
 
 var ErrExecTimeout = errors.New("execute timeout")
 
-// unmarshal shell output to decode json
+// UnmarshalJSON: unmarshal shell output to decode json
 func (s *Session) UnmarshalJSON(data interface{}) (err error) {
 	bufrw := bytes.NewBuffer(nil)
 	s.Stdout = bufrw
@@ -24,7 +24,7 @@ func (s *Session) UnmarshalJSON(data interface{}) (err error) {
 	return json.NewDecoder(bufrw).Decode(data)
 }
 
-// unmarshal command output into xml
+// UnmarshalXML: unmarshal command output into xml
 func (s *Session) UnmarshalXML(data interface{}) (err error) {
 	bufrw := bytes.NewBuffer(nil)
 	s.Stdout = bufrw
@@ -70,7 +70,7 @@ func (s *Session) Start() (err error) {
 	return
 }
 
-// Should be call after Start()
+// Wait: Should be call after Start()
 // only catch the last command error
 func (s *Session) Wait() (err error) {
 	for _, cmd := range s.cmds {

@@ -122,7 +122,7 @@ func (s *Session) Command(name string, a ...interface{}) *Session {
 	return s
 }
 
-// combine Command and Run
+// Call: combine Command and Run
 func (s *Session) Call(name string, a ...interface{}) error {
 	return s.Command(name, a...).Run()
 }

@@ -33,7 +33,7 @@ func init() {
 	//log.SetFlags(log.Lshortfile | log.LstdFlags)
 }
 
-// expression can be dir, file, link
+// Test: expression can be dir, file, link
 func (s *Session) Test(expression string, argument string) bool {
 	var err error
 	var fi os.FileInfo
@@ -57,7 +57,7 @@ func (s *Session) Test(expression string, argument string) bool {
 	return false
 }
 
-// expression can be d,dir, f,file, link
+// Test: expression can be d,dir, f,file, link
 func Test(exp string, arg string) bool {
 	s := NewSession()
 	return s.Test(exp, arg)
